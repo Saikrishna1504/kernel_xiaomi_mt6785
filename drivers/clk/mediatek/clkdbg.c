@@ -1973,7 +1973,7 @@ static void show_save_point(struct save_point *sp)
 static void store_save_point(struct save_point *sp)
 {
 	save_pwr_status(&sp->spm_pwr_status);
-	save_all_clks_state(sp->clks_states, &sp->spm_pwr_status);
+	save_all_clks_state(sp->clks_states, sp->spm_pwr_status);
 
 #if CLKDBG_PM_DOMAIN
 	save_all_genpd_state(sp->genpd_states, sp->genpd_dev_states);
