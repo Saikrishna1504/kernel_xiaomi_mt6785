@@ -91,7 +91,7 @@ int set_max_cpu_freq(int cluster, int max)
     if (unlikely(!is_freq_valid(cluster, max)))
         goto out;
 
-    if (unlikely(max < current_cpu_freq[cluster].min && current_cpu_freq[cluster].min > 0))
+    if (unlikely(max > 0 && max < current_cpu_freq[cluster].min && current_cpu_freq[cluster].min > 0))
         goto out;
 
     current_cpu_freq[cluster].max = max > 0 ? max : -1;
